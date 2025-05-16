@@ -18,7 +18,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* メインボタン (Default) */}
               <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold mb-1">メインボタン (Default)</h3>
+                <h3 className="text-lg font-semibold mb-1">メインボタン</h3>
                 <p className="text-sm text-gray-500 mb-4">重要なアクションボタンなどに使用</p>
                 
                 <h4 className="text-sm font-medium mb-2">Small</h4>
@@ -42,7 +42,7 @@ export default function Home() {
               {/* Secondary */}
               <div className="border-t pt-4">
                 <h3 className="text-lg font-semibold mb-1">Secondary</h3>
-                <p className="text-sm text-gray-500 mb-4">白背景アクセントボタンなどに使用</p>
+                <p className="text-sm text-gray-500 mb-4">ページ内のアクションボタンなどに使用</p>
                 
                 <h4 className="text-sm font-medium mb-2">Small</h4>
                 <div className="space-y-2 mb-4">

@@ -47,7 +47,6 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   onClick,
   disabled = false,
   size = 'medium',
-  colorVariant = 'primary',
   fullWidth = false,
   style = {},
   hoverStyle = {},

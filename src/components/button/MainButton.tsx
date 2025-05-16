@@ -4,7 +4,6 @@ import React from 'react';
 import BaseButton, { ButtonSize, ButtonColorVariant } from './BaseButton';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
-import { TEXT } from '../constants/colors/text';
 import { STATUS } from '../constants/colors/status';
 import { DISABLED } from '../constants/colors/disabled';
 

@@ -1,7 +1,6 @@
 // ボタンコンポーネントのエントリーポイント
 // ユーザー向けインターフェースとしてボタンコンポーネントをエクスポート
 
-import { BaseButtonProps } from './BaseButton';
 import MainButton from './MainButton';
 import SecondaryButton from './SecondaryButton';
 import TertiaryButton from './TertiaryButton';
@@ -9,12 +8,7 @@ import TextButton from './TextButton';
 
 // 既存の型定義を維持するためエクスポート
 export type { ButtonSize } from './BaseButton';
-
-// 各ボタンコンポーネントの型もエクスポート
-export { MainButtonProps } from './MainButton';
-export { SecondaryButtonProps } from './SecondaryButton';
-export { TertiaryButtonProps } from './TertiaryButton';
-export { TextButtonProps } from './TextButton';
+export type { MainButtonProps } from './MainButton';
 
 // 各ボタンコンポーネントをエクスポート
 export {
@@ -25,9 +19,11 @@ export {
 };
 
 // デフォルトではすべてのボタンをエクスポート
-export default {
+const Buttons = {
   Main: MainButton,
   Secondary: SecondaryButton,
   Tertiary: TertiaryButton,
   Text: TextButton,
-}; 
+};
+
+export default Buttons; 

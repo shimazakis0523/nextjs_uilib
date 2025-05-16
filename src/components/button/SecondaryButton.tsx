@@ -3,9 +3,7 @@
 import React from 'react';
 import BaseButton, { ButtonSize, ButtonColorVariant } from './BaseButton';
 import { PRIMARY } from '../constants/colors/primary';
-import { TEXT } from '../constants/colors/text';
 import { GRAY } from '../constants/colors/gray';
-import { BORDER } from '../constants/colors/border';
 import { STATUS } from '../constants/colors/status';
 import { DISABLED } from '../constants/colors/disabled';
 

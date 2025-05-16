@@ -1,9 +1,7 @@
 // 無効状態（disabled）のカラー定義
 // コンポーネントが無効状態の時に使用する色を定義します
 
-import { PRIMARY } from './primary';
 import { GRAY } from './gray';
-import { STATUS } from './status';
 
 // 無効状態の色定義
 export const DISABLED_COLORS = {
