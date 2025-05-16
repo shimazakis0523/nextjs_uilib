@@ -23,21 +23,24 @@ export default function Home() {
                 
                 <h4 className="text-sm font-medium mb-2">Small</h4>
                 <div className="space-y-2 mb-4">
+                <h4 className="text-sm font-medium mb-2">Primaryカラー</h4>
                   <MainButton size="small" colorVariant="primary">
-                    メインラベル
+                    ラベル
                   </MainButton>
-                  <div>
-                    <MainButton size="small" colorVariant="gray">
-                      メインラベル
-                    </MainButton>
-                  </div>
-                  <div>
+                <div>
+                <h4 className="text-sm font-medium mb-2">Grayカラー</h4>
+                  <MainButton size="small" colorVariant="gray">
+                    ラベル
+                  </MainButton>
+                </div>
+                <div>
+                <h4 className="text-sm font-medium mb-2">Errorカラー</h4>
                     <MainButton size="small" colorVariant="error">
-                      メインラベル
+                      ラベル
                     </MainButton>
-                  </div>
                 </div>
               </div>
+            </div>
               
               {/* Secondary */}
               <div className="border-t pt-4">
@@ -47,16 +50,16 @@ export default function Home() {
                 <h4 className="text-sm font-medium mb-2">Small</h4>
                 <div className="space-y-2 mb-4">
                   <SecondaryButton size="small" colorVariant="primary">
-                    ラベル
+                    primary
                   </SecondaryButton>
                   <div>
                     <SecondaryButton size="small" colorVariant="gray">
-                      ラベル
+                      gray
                     </SecondaryButton>
                   </div>
                   <div>
                     <SecondaryButton size="small" colorVariant="error">
-                      ラベル
+                      error
                     </SecondaryButton>
                   </div>
                 </div>
@@ -70,16 +73,16 @@ export default function Home() {
                 <h4 className="text-sm font-medium mb-2">Small</h4>
                 <div className="space-y-2 mb-4">
                   <TertiaryButton size="small" colorVariant="primary">
-                    ラベル
+                    primary
                   </TertiaryButton>
                   <div>
                     <TertiaryButton size="small" colorVariant="gray">
-                      ラベル
+                      gray
                     </TertiaryButton>
                   </div>
                   <div>
                     <TertiaryButton size="small" colorVariant="error">
-                      ラベル
+                      error
                     </TertiaryButton>
                   </div>
                 </div>
@@ -93,13 +96,13 @@ export default function Home() {
                 <h4 className="text-sm font-medium mb-2">Small</h4>
                 <div className="flex space-x-8 mb-4">
                   <TextButton size="small" colorVariant="primary">
-                    プライマリラベル
+                    primary
                   </TextButton>
                   <TextButton size="small" colorVariant="gray">
-                    グレーラベル
+                    gray
                   </TextButton>
                   <TextButton size="small" colorVariant="error">
-                    エラーラベル
+                    error
                   </TextButton>
                 </div>
               </div>
