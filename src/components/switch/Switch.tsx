@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback, useRef } from 'react';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
 
@@ -62,11 +62,11 @@ const Switch: React.FC<SwitchProps> & {
   const [itemCount, setItemCount] = useState(0);
   
   // Item コンポーネントの登録用関数
-  const registerItem = () => {
+  const registerItem = useCallback(() => {
     const index = itemCount;
     setItemCount(prev => prev + 1);
     return index;
-  };
+  }, []);
   
   // サイズに基づくスタイル
   const sizeClasses = {
@@ -133,10 +133,16 @@ const SwitchItem: React.FC<SwitchItemProps> = ({
   // この項目が選択されているか
   const isSelected = selectedValue === value;
   
+  // コンポーネントのマウント時のみ登録を実行するためのフラグ
+  const isRegistered = useRef(false);
+  
   // コンポーネントのマウント時に登録
   React.useEffect(() => {
-    registerItem();
-  }, [registerItem]);
+    if (!isRegistered.current) {
+      registerItem();
+      isRegistered.current = true;
+    }
+  }, []);
   
   // クリック時の処理
   const handleClick = () => {

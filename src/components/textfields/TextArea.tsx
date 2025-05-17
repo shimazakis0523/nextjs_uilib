@@ -134,7 +134,7 @@ const TextArea: React.FC<TextAreaProps> = ({
     }
     
     return isLengthValid && isRegexValid;
-  }, [maxLength, validationPattern, patternErrorMessage, onValidation]);
+  }, [maxLength, validationPattern, patternErrorMessage, onValidation, validatePattern]);
   
   // 必要なタイミングで検証を実行
   useEffect(() => {

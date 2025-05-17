@@ -43,12 +43,18 @@ export default function FontSample() {
         <h2 className="text-2xl font-bold mb-4">2. フォントサイズ</h2>
         
         <div className="grid gap-4">
-          {Object.entries(FONT_SIZE).map(([name, size]) => (
-            <div key={name} className="flex items-center">
-              <div className="w-20">{name}:</div>
-              <Text size={name.toLowerCase() as 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'}>{size} - これはサンプルテキストです</Text>
-            </div>
-          ))}
+          {Object.entries(FONT_SIZE).map(([name, size]) => {
+            const textSize = name.toLowerCase();
+            if (!['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'].includes(textSize)) {
+              return null;
+            }
+            return (
+              <div key={name} className="flex items-center">
+                <div className="w-20">{name}:</div>
+                <Text size={textSize as 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl'}>{size} - これはサンプルテキストです</Text>
+              </div>
+            );
+          })}
         </div>
       </section>
       

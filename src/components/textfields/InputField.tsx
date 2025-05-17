@@ -138,7 +138,7 @@ const InputField: React.FC<InputFieldProps> = ({
     }
     
     return isLengthValid && isRegexValid;
-  }, [maxLength, validationPattern, patternErrorMessage, onValidation]);
+  }, [maxLength, validationPattern, patternErrorMessage, onValidation, validatePattern]);
   
   // 必要なタイミングで検証を実行
   useEffect(() => {
