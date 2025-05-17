@@ -9,6 +9,7 @@ import TextArea from '../../../components/textfields/TextArea';
 import Dropdown from '../../../components/textfields/Dropdown';
 import { MainButton, SecondaryButton } from '../../../components/button';
 import { EyeIcon, EyeOffIcon } from '../../../components/icons';
+import { Popup } from '../../../components/popups';
 import { 
   EMAIL_PATTERN,
   MOBILE_PHONE_PATTERN,
@@ -65,20 +66,36 @@ export default function UserRegistrationPage() {
   // パスワード表示状態
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+  // ポップアップ表示状態
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+  // 確認中のフォームデータ
+  const [confirmData, setConfirmData] = useState<UserFormData | null>(null);
+  
+  // フォーム検証処理（ポップアップを表示するため）
+  const validateAndShowPopup: SubmitHandler<UserFormData> = (data) => {
+    setConfirmData(data);
+    setShowConfirmPopup(true);
+  };
   
   // フォーム送信処理
-  const onSubmit: SubmitHandler<UserFormData> = async (data) => {
+  const onSubmit = async () => {
+    if (!confirmData) return;
+    
     // 送信処理をシミュレート（実際はAPIリクエストなど）
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     // 送信データを保存
-    setSubmittedData(data);
+    setSubmittedData(confirmData);
     setIsSubmitted(true);
+    setShowConfirmPopup(false);
     
-    // フォームをリセット
-    // reset();
-    
-    console.log('送信データ:', data);
+    console.log('送信データ:', confirmData);
+  };
+  
+  // 確認キャンセル
+  const handleCancelConfirm = () => {
+    setShowConfirmPopup(false);
+    setConfirmData(null);
   };
   
   // フォームリセット
@@ -162,7 +179,7 @@ export default function UserRegistrationPage() {
     >
       <div className="space-y-6 px-4 sm:px-6">
         <Card title="ユーザー登録情報" className="mb-8">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={handleSubmit(validateAndShowPopup)} className="space-y-6">
             {/* 氏名（漢字） */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -436,6 +453,42 @@ export default function UserRegistrationPage() {
             </div>
           </form>
         </Card>
+        
+        {/* 確認ポップアップ */}
+        {showConfirmPopup && confirmData && (
+          <Popup
+            title="登録内容の確認"
+            message="以下の内容で登録します。よろしいですか？"
+            variant="info"
+            confirmText="登録する"
+            cancelText="キャンセル"
+            onConfirm={onSubmit}
+            onCancel={handleCancelConfirm}
+          >
+            <div className="mt-4 border-t pt-4 space-y-2 text-sm">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="font-medium">氏名：</div>
+                <div>{confirmData.lastName} {confirmData.firstName}</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="font-medium">フリガナ：</div>
+                <div>{confirmData.lastNameKana} {confirmData.firstNameKana}</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="font-medium">電話番号：</div>
+                <div>{confirmData.mobilePhone}</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="font-medium">住所：</div>
+                <div>〒{confirmData.postalCode} {confirmData.prefecture}</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="font-medium">メールアドレス：</div>
+                <div>{confirmData.email}</div>
+              </div>
+            </div>
+          </Popup>
+        )}
         
         {/* 送信結果表示 */}
         {isSubmitted && submittedData && (

@@ -88,11 +88,14 @@ const Popup: React.FC<PopupProps> = ({
   
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300"
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
       onClick={handleOverlayClick}
+      aria-modal="true"
+      role="dialog"
     >
       <div 
-        className={`bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full mx-4 ${className}`}
+        className={`bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden max-w-lg w-full mx-4 transform transition-transform duration-300 ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-5">

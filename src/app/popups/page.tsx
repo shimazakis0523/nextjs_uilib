@@ -72,112 +72,82 @@ export default function PopupsPage() {
       <Card title="使用方法">
         <div className="space-y-4">
           <h3 className="text-lg font-medium mb-2">インポート方法</h3>
-          <pre className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
-            {`import { Popup } from '../components/popups';`}
-          </pre>
+          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+            <p>{'import { Popup } from \'../components/popups\';'}</p>
+          </div>
           
           <h3 className="text-lg font-medium mb-2">基本的な使い方</h3>
-          <pre className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
-            {`// 基本的な使い方
-const [isOpen, setIsOpen] = useState(false);
-
-// 表示切り替え
-const togglePopup = () => {
-  setIsOpen(!isOpen);
-};
-
-// JSX内
-return (
-  <div>
-    <button onClick={togglePopup}>ポップアップを開く</button>
-    
-    {isOpen && (
-      <Popup
-        title="タイトル"
-        message="メッセージテキスト"
-        variant="info"
-        onConfirm={() => {
-          console.log('確認されました');
-          togglePopup();
-        }}
-        onCancel={() => {
-          console.log('キャンセルされました');
-          togglePopup();
-        }}
-      />
-    )}
-  </div>
-);`}
-          </pre>
+          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto">
+            <p className="mb-2">1. Popupコンポーネントをインポートする</p>
+            <p className="mb-2">2. 表示状態を管理するstateを作成する</p>
+            <p className="mb-2">3. 表示/非表示を切り替える関数を作成する</p>
+            <p className="mb-2">4. ボタンクリック時にポップアップを表示し、確認/キャンセル時に非表示にする</p>
+          </div>
           
           <h3 className="text-lg font-medium mb-2">プロパティ一覧</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-gray-300">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 px-4 py-2 text-left">プロパティ</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">タイプ</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">デフォルト</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">説明</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">title</td>
-                  <td className="border border-gray-300 px-4 py-2">string</td>
-                  <td className="border border-gray-300 px-4 py-2">-</td>
-                  <td className="border border-gray-300 px-4 py-2">ポップアップのタイトル</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">message</td>
-                  <td className="border border-gray-300 px-4 py-2">string</td>
-                  <td className="border border-gray-300 px-4 py-2">-</td>
-                  <td className="border border-gray-300 px-4 py-2">ポップアップのメッセージ</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">variant</td>
-                  <td className="border border-gray-300 px-4 py-2">'info' | 'warning'</td>
-                  <td className="border border-gray-300 px-4 py-2">'info'</td>
-                  <td className="border border-gray-300 px-4 py-2">ポップアップのバリアント</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">confirmText</td>
-                  <td className="border border-gray-300 px-4 py-2">string</td>
-                  <td className="border border-gray-300 px-4 py-2">'保存'</td>
-                  <td className="border border-gray-300 px-4 py-2">確認ボタンのテキスト</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">cancelText</td>
-                  <td className="border border-gray-300 px-4 py-2">string</td>
-                  <td className="border border-gray-300 px-4 py-2">'キャンセル'</td>
-                  <td className="border border-gray-300 px-4 py-2">キャンセルボタンのテキスト</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">onConfirm</td>
-                  <td className="border border-gray-300 px-4 py-2">() => void</td>
-                  <td className="border border-gray-300 px-4 py-2">-</td>
-                  <td className="border border-gray-300 px-4 py-2">確認ボタンクリック時のコールバック</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">onCancel</td>
-                  <td className="border border-gray-300 px-4 py-2">() => void</td>
-                  <td className="border border-gray-300 px-4 py-2">-</td>
-                  <td className="border border-gray-300 px-4 py-2">キャンセルボタンクリック時のコールバック</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">isOpen</td>
-                  <td className="border border-gray-300 px-4 py-2">boolean</td>
-                  <td className="border border-gray-300 px-4 py-2">true</td>
-                  <td className="border border-gray-300 px-4 py-2">ポップアップの表示状態</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2">closeOnOutsideClick</td>
-                  <td className="border border-gray-300 px-4 py-2">boolean</td>
-                  <td className="border border-gray-300 px-4 py-2">true</td>
-                  <td className="border border-gray-300 px-4 py-2">外側クリックで閉じるかどうか</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="space-y-4">
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">title</div>
+              <div>タイプ: string</div>
+              <div>デフォルト: -</div>
+              <div>説明: ポップアップのタイトル</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">message</div>
+              <div>タイプ: string</div>
+              <div>デフォルト: -</div>
+              <div>説明: ポップアップのメッセージ</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">variant</div>
+              <div>タイプ: &apos;info&apos; または &apos;warning&apos;</div>
+              <div>デフォルト: &apos;info&apos;</div>
+              <div>説明: ポップアップのバリアント</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">confirmText</div>
+              <div>タイプ: string</div>
+              <div>デフォルト: &apos;保存&apos;</div>
+              <div>説明: 確認ボタンのテキスト</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">cancelText</div>
+              <div>タイプ: string</div>
+              <div>デフォルト: &apos;キャンセル&apos;</div>
+              <div>説明: キャンセルボタンのテキスト</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">onConfirm</div>
+              <div>タイプ: 関数</div>
+              <div>デフォルト: -</div>
+              <div>説明: 確認ボタンクリック時のコールバック</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">onCancel</div>
+              <div>タイプ: 関数</div>
+              <div>デフォルト: -</div>
+              <div>説明: キャンセルボタンクリック時のコールバック</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">isOpen</div>
+              <div>タイプ: boolean</div>
+              <div>デフォルト: true</div>
+              <div>説明: ポップアップの表示状態</div>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <div className="font-bold">closeOnOutsideClick</div>
+              <div>タイプ: boolean</div>
+              <div>デフォルト: true</div>
+              <div>説明: 外側クリックで閉じるかどうか</div>
+            </div>
           </div>
         </div>
       </Card>
