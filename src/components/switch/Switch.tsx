@@ -133,13 +133,10 @@ const SwitchItem: React.FC<SwitchItemProps> = ({
   // この項目が選択されているか
   const isSelected = selectedValue === value;
   
-  // コンポーネントのインデックスを取得 - useEffectを使って登録
-  const [index, setIndex] = React.useState(-1);
-  
+  // コンポーネントのマウント時に登録
   React.useEffect(() => {
-    setIndex(registerItem());
-    // 依存配列を空にして、コンポーネントのマウント時のみ実行
-  }, []);
+    registerItem();
+  }, [registerItem]);
   
   // クリック時の処理
   const handleClick = () => {

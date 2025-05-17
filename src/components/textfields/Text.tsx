@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from 'react';
-import { BlueGray, Common } from '../constants/colors/Colors';
+import { BlueGray } from '../constants/colors/Colors';
 
 export interface TextProps {
   /** テキストの内容 */
