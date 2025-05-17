@@ -87,6 +87,11 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
       isActive: activePath === '/header'
     },
     {
+      label: 'ポップアップ',
+      href: '/popups',
+      isActive: activePath === '/popups'
+    },
+    {
       label: 'サンプルページ集',
       href: '#',
       isSection: true

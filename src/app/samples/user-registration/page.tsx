@@ -160,11 +160,11 @@ export default function UserRegistrationPage() {
       screenId="サンプルページ" 
       screenTitle="ユーザー登録フォーム"
     >
-      <div className="space-y-6">
+      <div className="space-y-6 px-4 sm:px-6">
         <Card title="ユーザー登録情報" className="mb-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* 氏名（漢字） */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <InputField
                   label="姓（漢字）"
@@ -218,7 +218,7 @@ export default function UserRegistrationPage() {
             </div>
             
             {/* 氏名（フリガナ） */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <InputField
                   label="姓（フリガナ）"
@@ -270,132 +270,138 @@ export default function UserRegistrationPage() {
             </div>
             
             {/* 携帯電話番号 */}
-            <div>
-              <InputField
-                label="携帯電話番号"
-                placeholder="090-1234-5678"
-                isRequired
-                width="md"
-                state={errors.mobilePhone ? "error" : "default"}
-                errorMessage={errors.mobilePhone?.message}
-                patternHint="例: 090-1234-5678（090, 080, 070, 060, 050で始まる番号のみ、ハイフン必須）"
-                {...register("mobilePhone", { 
-                  required: "携帯電話番号は必須です",
-                  pattern: {
-                    value: MOBILE_PHONE_PATTERN,
-                    message: "正しい携帯電話番号の形式で入力してください"
-                  }
-                })}
-              />
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <InputField
+                  label="携帯電話番号"
+                  placeholder="090-1234-5678"
+                  isRequired
+                  width="full"
+                  state={errors.mobilePhone ? "error" : "default"}
+                  errorMessage={errors.mobilePhone?.message}
+                  patternHint="例: 090-1234-5678（090, 080, 070, 060, 050で始まる番号のみ、ハイフン必須）"
+                  {...register("mobilePhone", { 
+                    required: "携帯電話番号は必須です",
+                    pattern: {
+                      value: MOBILE_PHONE_PATTERN,
+                      message: "正しい携帯電話番号の形式で入力してください"
+                    }
+                  })}
+                />
+              </div>
             
-            {/* 郵便番号 */}
-            <div>
-              <InputField
-                label="郵便番号"
-                placeholder="123-4567"
-                isRequired
-                width="sm"
-                state={errors.postalCode ? "error" : "default"}
-                errorMessage={errors.postalCode?.message}
-                patternHint="例: 123-4567（ハイフン必須）"
-                {...register("postalCode", { 
-                  required: "郵便番号は必須です",
-                  pattern: {
-                    value: POSTAL_CODE_PATTERN,
-                    message: "正しい郵便番号形式（123-4567）で入力してください"
-                  }
-                })}
-              />
+              {/* 郵便番号 */}
+              <div>
+                <InputField
+                  label="郵便番号"
+                  placeholder="123-4567"
+                  isRequired
+                  width="full"
+                  state={errors.postalCode ? "error" : "default"}
+                  errorMessage={errors.postalCode?.message}
+                  patternHint="例: 123-4567（ハイフン必須）"
+                  {...register("postalCode", { 
+                    required: "郵便番号は必須です",
+                    pattern: {
+                      value: POSTAL_CODE_PATTERN,
+                      message: "正しい郵便番号形式（123-4567）で入力してください"
+                    }
+                  })}
+                />
+              </div>
             </div>
             
             {/* 都道府県 */}
-            <div>
-              <Dropdown
-                label="都道府県"
-                placeholder="選択してください"
-                isRequired
-                options={prefectureOptions}
-                width="md"
-                state={errors.prefecture ? "error" : "default"}
-                errorMessage={errors.prefecture?.message}
-                {...register("prefecture", { 
-                  required: "都道府県は必須です"
-                })}
-              />
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <Dropdown
+                  label="都道府県"
+                  placeholder="選択してください"
+                  isRequired
+                  options={prefectureOptions}
+                  width="full"
+                  state={errors.prefecture ? "error" : "default"}
+                  errorMessage={errors.prefecture?.message}
+                  {...register("prefecture", { 
+                    required: "都道府県は必須です"
+                  })}
+                />
+              </div>
             
-            {/* メールアドレス */}
-            <div>
-              <InputField
-                label="メールアドレス"
-                placeholder="example@example.com"
-                isRequired
-                width="lg"
-                state={errors.email ? "error" : "default"}
-                errorMessage={errors.email?.message}
-                patternHint="例: example@example.com"
-                {...register("email", { 
-                  required: "メールアドレスは必須です",
-                  pattern: {
-                    value: EMAIL_PATTERN,
-                    message: "正しいメールアドレス形式で入力してください"
-                  }
-                })}
-              />
+              {/* メールアドレス */}
+              <div>
+                <InputField
+                  label="メールアドレス"
+                  placeholder="example@example.com"
+                  isRequired
+                  width="full"
+                  state={errors.email ? "error" : "default"}
+                  errorMessage={errors.email?.message}
+                  patternHint="例: example@example.com"
+                  {...register("email", { 
+                    required: "メールアドレスは必須です",
+                    pattern: {
+                      value: EMAIL_PATTERN,
+                      message: "正しいメールアドレス形式で入力してください"
+                    }
+                  })}
+                />
+              </div>
             </div>
             
             {/* パスワード */}
-            <div>
-              <InputField
-                label="パスワード"
-                placeholder="********"
-                isRequired
-                type={showPassword ? "text" : "password"}
-                width="lg"
-                state={errors.password ? "error" : "default"}
-                errorMessage={errors.password?.message}
-                patternHint="8文字以上、大文字・小文字・数字・特殊文字をそれぞれ1つ以上含める必要があります"
-                rightIcon={
-                  <div onClick={(e) => togglePasswordVisibility(e)}>
-                    {showPassword ? <EyeOffIcon /> : <EyeIcon />}
-                  </div>
-                }
-                {...register("password", { 
-                  required: "パスワードは必須です",
-                  minLength: {
-                    value: 8,
-                    message: "8文字以上で入力してください"
-                  },
-                  pattern: {
-                    value: STRONG_PASSWORD_PATTERN,
-                    message: "パスワードは大文字・小文字・数字・特殊文字をそれぞれ1つ以上含める必要があります"
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <InputField
+                  label="パスワード"
+                  placeholder="********"
+                  isRequired
+                  type={showPassword ? "text" : "password"}
+                  width="full"
+                  state={errors.password ? "error" : "default"}
+                  errorMessage={errors.password?.message}
+                  patternHint="8文字以上、大文字・小文字・数字・特殊文字をそれぞれ1つ以上含める必要があります"
+                  rightIcon={
+                    <div onClick={(e) => togglePasswordVisibility(e)}>
+                      {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                    </div>
                   }
-                })}
-              />
-            </div>
-            
-            {/* パスワード確認 */}
-            <div>
-              <InputField
-                label="パスワード確認"
-                placeholder="********"
-                isRequired
-                type={showPasswordConfirm ? "text" : "password"}
-                width="lg"
-                state={errors.passwordConfirm ? "error" : "default"}
-                errorMessage={errors.passwordConfirm?.message}
-                rightIcon={
-                  <div onClick={(e) => togglePasswordConfirmVisibility(e)}>
-                    {showPasswordConfirm ? <EyeOffIcon /> : <EyeIcon />}
-                  </div>
-                }
-                {...register("passwordConfirm", { 
-                  required: "パスワード確認は必須です",
-                  validate: value => 
-                    value === getValues("password") || "パスワードが一致しません"
-                })}
-              />
+                  {...register("password", { 
+                    required: "パスワードは必須です",
+                    minLength: {
+                      value: 8,
+                      message: "8文字以上で入力してください"
+                    },
+                    pattern: {
+                      value: STRONG_PASSWORD_PATTERN,
+                      message: "パスワードは大文字・小文字・数字・特殊文字をそれぞれ1つ以上含める必要があります"
+                    }
+                  })}
+                />
+              </div>
+              
+              {/* パスワード確認 */}
+              <div>
+                <InputField
+                  label="パスワード確認"
+                  placeholder="********"
+                  isRequired
+                  type={showPasswordConfirm ? "text" : "password"}
+                  width="full"
+                  state={errors.passwordConfirm ? "error" : "default"}
+                  errorMessage={errors.passwordConfirm?.message}
+                  rightIcon={
+                    <div onClick={(e) => togglePasswordConfirmVisibility(e)}>
+                      {showPasswordConfirm ? <EyeOffIcon /> : <EyeIcon />}
+                    </div>
+                  }
+                  {...register("passwordConfirm", { 
+                    required: "パスワード確認は必須です",
+                    validate: value => 
+                      value === getValues("password") || "パスワードが一致しません"
+                  })}
+                />
+              </div>
             </div>
             
             {/* 備考（テキストエリア） */}
@@ -435,7 +441,7 @@ export default function UserRegistrationPage() {
         {isSubmitted && submittedData && (
           <Card title="送信結果" className="mb-8">
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="font-medium text-gray-500">姓（漢字）</p>
                   <p>{submittedData.lastName}</p>
@@ -446,7 +452,7 @@ export default function UserRegistrationPage() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="font-medium text-gray-500">姓（フリガナ）</p>
                   <p>{submittedData.lastNameKana}</p>
@@ -462,7 +468,7 @@ export default function UserRegistrationPage() {
                 <p>{submittedData.mobilePhone}</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="font-medium text-gray-500">郵便番号</p>
                   <p>{submittedData.postalCode}</p>
@@ -473,7 +479,7 @@ export default function UserRegistrationPage() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="font-medium text-gray-500">パスワード</p>
                   <p>••••••••</p>

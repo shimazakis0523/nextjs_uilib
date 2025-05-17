@@ -98,6 +98,11 @@ const SideMenu: React.FC<SideMenuProps> = ({
       if (onMenuItemClick) {
         onMenuItemClick(item);
       }
+      
+      // モバイル表示時はメニューを閉じる
+      if (isMobile && onToggle) {
+        onToggle();
+      }
     };
     
     // メニュー項目の一意のキー
