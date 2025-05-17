@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, TextareaHTMLAttributes, useEffect } from 'react';
+import React, { useState, useRef, TextareaHTMLAttributes, useEffect, useCallback } from 'react';
 import { withAlpha } from '../constants/colors/Colors';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
@@ -109,7 +109,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   };
   
   // 検証を実行して結果を設定
-  const runValidation = (val: string) => {
+  const runValidation = useCallback((val: string) => {
     // 最大文字数チェック
     const isLengthValid = !maxLength || val.length <= maxLength;
     
@@ -134,14 +134,14 @@ const TextArea: React.FC<TextAreaProps> = ({
     }
     
     return isLengthValid && isRegexValid;
-  };
+  }, [maxLength, validationPattern, patternErrorMessage, onValidation]);
   
   // 必要なタイミングで検証を実行
   useEffect(() => {
     if (isDirty && validateOn === 'change') {
       runValidation(textValue);
     }
-  }, [textValue, isDirty, validationPattern, maxLength, validateOn, runValidation]);
+  }, [textValue, isDirty, validateOn, runValidation]);
   
   // propsからdisabledが渡された場合はstate='disabled'に設定
   // 検証エラーの場合はエラー状態に

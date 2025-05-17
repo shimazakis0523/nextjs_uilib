@@ -166,9 +166,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             disabled={currentState === 'disabled'}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            defaultValue=""
             {...props}
           >
-            <option value="" disabled selected hidden>{placeholder}</option>
+            <option value="" disabled hidden>{placeholder}</option>
             {options.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}

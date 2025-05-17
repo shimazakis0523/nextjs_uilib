@@ -113,7 +113,7 @@ const InputField: React.FC<InputFieldProps> = ({
   };
   
   // 検証を実行して結果を設定
-  const runValidation = (val: string) => {
+  const runValidation = React.useCallback((val: string) => {
     // 最大文字数チェック
     const isLengthValid = !maxLength || val.length <= maxLength;
     
@@ -138,14 +138,14 @@ const InputField: React.FC<InputFieldProps> = ({
     }
     
     return isLengthValid && isRegexValid;
-  };
+  }, [maxLength, validationPattern, patternErrorMessage, onValidation]);
   
   // 必要なタイミングで検証を実行
   useEffect(() => {
     if (isDirty && validateOn === 'change') {
       runValidation(inputValue);
     }
-  }, [inputValue, isDirty, validationPattern, maxLength, validateOn, runValidation]);
+  }, [inputValue, isDirty, validateOn, runValidation]);
   
   // propsからdisabledが渡された場合はstate='disabled'に設定
   // 検証エラーの場合はエラー状態に
