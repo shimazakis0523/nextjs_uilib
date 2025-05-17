@@ -29,6 +29,9 @@ export interface SecondaryButtonProps {
   
   /** 追加のCSSクラス */
   className?: string;
+
+  /** ボタンのタイプ: 'button', 'submit', 'reset' */
+  type?: 'button' | 'submit' | 'reset';
 }
 
 /**
@@ -45,6 +48,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   disabled = false,
   fullWidth = false,
   className = '',
+  type = 'button',
 }) => {
   // 色の設定
   let textColor, borderColor, hoverBackgroundColor;
@@ -95,6 +99,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
       style={style}
       hoverStyle={hoverStyle}
       className={`rounded-full ${className}`}
+      type={type}
     >
       {children}
     </BaseButton>

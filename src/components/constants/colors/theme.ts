@@ -5,6 +5,7 @@
 import { GRAY } from './gray';
 import { TEXT } from './text';
 import { BACKGROUND } from './background';
+import { Common } from './Colors';
 
 /**
  * テーマカラー - ライトモード
@@ -15,11 +16,11 @@ export const LIGHT_THEME = {
   BACKGROUND: BACKGROUND.LIGHT,
   
   // テキストカラー
-  FOREGROUND: TEXT.PRIMARY_DARK,
+  FOREGROUND: TEXT.PRIMARY,
   
   // ベースカラー
   BASE: {
-    PRIMARY: GRAY.WHITE,
+    PRIMARY: Common.WHITE,
     SECONDARY: GRAY.LOWEST,
     TERTIARY: GRAY.LOWER,
   },

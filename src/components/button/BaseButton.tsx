@@ -36,6 +36,9 @@ export interface BaseButtonProps {
   
   /** 追加のCSSクラス */
   className?: string;
+
+  /** ボタンのタイプ: 'button', 'submit', 'reset' */
+  type?: 'button' | 'submit' | 'reset';
 }
 
 /**
@@ -51,6 +54,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   style = {},
   hoverStyle = {},
   className = '',
+  type = 'button',
 }) => {
   // hover状態を追跡
   const [isHovered, setIsHovered] = useState(false);
@@ -88,6 +92,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>

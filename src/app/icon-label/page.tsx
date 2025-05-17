@@ -6,7 +6,7 @@ import { Card } from '../../components/cards';
 import AppLayout from '../../components/layout';
 
 // メールアイコンコンポーネント
-const MailIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'currentColor', size = 16 }) => {
+const MailIcon: React.FC<{ color?: string; size?: number; className?: string }> = ({ color = 'currentColor', size = 16, className = '' }) => {
   return (
     <svg
       width={size}
@@ -14,6 +14,7 @@ const MailIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'curren
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <rect x="2" y="4" width="20" height="16" rx="2" stroke={color} strokeWidth="2" />
       <path d="M2 8L10.1649 12.7154C11.2511 13.3788 12.7489 13.3788 13.8351 12.7154L22 8" stroke={color} strokeWidth="2" />
@@ -22,7 +23,7 @@ const MailIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'curren
 };
 
 // 通知アイコンコンポーネント
-const NotificationIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'currentColor', size = 16 }) => {
+const NotificationIcon: React.FC<{ color?: string; size?: number; className?: string }> = ({ color = 'currentColor', size = 16, className = '' }) => {
   return (
     <svg
       width={size}
@@ -30,6 +31,7 @@ const NotificationIcon: React.FC<{ color?: string; size?: number }> = ({ color =
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5V5.25C16.8113 6.1642 19 8.73753 19 11.9999V16.8572L20.5964 19.2535C20.8195 19.5889 20.7719 20.0368 20.4815 20.3149C20.1997 20.5853 19.7674 20.5761 19.4961 20.2947L19 19.9999H5L4.65488 20.2422C4.35112 20.5053 3.87361 20.475 3.60818 20.1778C3.33224 19.8668 3.33377 19.4101 3.61085 19.1012L5 16.8572V11.9999C5 8.73753 7.18869 6.1642 10 5.25V5Z" stroke={color} strokeWidth="2"/>
       <path d="M9 20C9 21.6569 10.3431 23 12 23C13.6569 23 15 21.6569 15 20" stroke={color} strokeWidth="2" strokeLinecap="round"/>
@@ -38,7 +40,7 @@ const NotificationIcon: React.FC<{ color?: string; size?: number }> = ({ color =
 };
 
 // クラウドアイコンコンポーネント
-const CloudIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'currentColor', size = 16 }) => {
+const CloudIcon: React.FC<{ color?: string; size?: number; className?: string }> = ({ color = 'currentColor', size = 16, className = '' }) => {
   return (
     <svg
       width={size}
@@ -46,6 +48,7 @@ const CloudIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'curre
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M6 19C3.79086 19 2 17.2091 2 15C2 13.1368 3.27532 11.5701 5 11.126C5 8.84279 6.79086 7 9 7C10.8638 7 12.4299 8.27532 12.874 10C15.1572 10 17 11.7909 17 14C17 15.8632 15.7247 17.4299 14 17.874L14 19L6 19Z" stroke={color} strokeWidth="2"/>
       <path d="M18 19C20.2091 19 22 17.2091 22 15C22 13.1368 20.7247 11.5701 19 11.126V11C19 8.79086 17.2091 7 15 7" stroke={color} strokeWidth="2"/>
@@ -54,7 +57,7 @@ const CloudIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'curre
 };
 
 // タグアイコンコンポーネント
-const TagIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'currentColor', size = 16 }) => {
+const TagIcon: React.FC<{ color?: string; size?: number; className?: string }> = ({ color = 'currentColor', size = 16, className = '' }) => {
   return (
     <svg
       width={size}
@@ -62,6 +65,7 @@ const TagIcon: React.FC<{ color?: string; size?: number }> = ({ color = 'current
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M4 4H11.5858C11.851 4 12.1054 4.10536 12.2929 4.29289L20.7071 12.7071C21.0976 13.0976 21.0976 13.7308 20.7071 14.1213L14.1213 20.7071C13.7308 21.0976 13.0976 21.0976 12.7071 20.7071L4.29289 12.2929C4.10536 12.1054 4 11.851 4 11.5858V4Z" stroke={color} strokeWidth="2"/>
       <circle cx="9" cy="9" r="2" stroke={color} strokeWidth="2"/>

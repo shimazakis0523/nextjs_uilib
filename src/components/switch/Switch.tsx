@@ -66,7 +66,7 @@ const Switch: React.FC<SwitchProps> & {
     const index = itemCount;
     setItemCount(prev => prev + 1);
     return index;
-  }, []);
+  }, [itemCount]);
   
   // サイズに基づくスタイル
   const sizeClasses = {
@@ -142,6 +142,7 @@ const SwitchItem: React.FC<SwitchItemProps> = ({
       registerItem();
       isRegistered.current = true;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   // クリック時の処理

@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useRef, SelectHTMLAttributes, ReactNode } from 'react';
+import { withAlpha } from '../constants/colors/Colors';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
 import { BORDER } from '../constants/colors/border';
 import { BACKGROUND } from '../constants/colors/background';
 import { TEXT } from '../constants/colors/text';
 import { INPUT } from '../constants/colors/input';
+import { STATUS } from '../constants/colors/status';
 import { Label } from '../labels';
 import Text from '../typography/Text';
 
@@ -19,7 +21,7 @@ export interface DropdownProps extends Omit<SelectHTMLAttributes<HTMLSelectEleme
   /** 選択肢のリスト */
   options?: DropdownOption[];
   /** 入力フィールドの状態 */
-  state?: 'default' | 'focus' | 'disabled';
+  state?: 'default' | 'focus' | 'error' | 'disabled';
   /** プレースホルダーテキスト */
   placeholder?: string;
   /** ラベルテキスト */
@@ -32,6 +34,8 @@ export interface DropdownProps extends Omit<SelectHTMLAttributes<HTMLSelectEleme
   className?: string;
   /** フィールドの幅 */
   width?: 'sm' | 'md' | 'lg' | 'full';
+  /** エラーメッセージ（state='error'の場合に表示） */
+  errorMessage?: string;
 }
 
 /**
@@ -48,6 +52,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className = '',
   width = 'full',
   disabled,
+  errorMessage,
   ...props
 }) => {
   // 内部状態
@@ -74,6 +79,12 @@ const Dropdown: React.FC<DropdownProps> = ({
       backgroundColor = BACKGROUND.PRIMARY;
       textColor = TEXT.PRIMARY;
       iconColor = GRAY.LOW;
+      break;
+    case 'error':
+      borderColor = STATUS.ERROR_MAIN;
+      backgroundColor = withAlpha(STATUS.ERROR_CONTAINER, 0.5);
+      textColor = TEXT.PRIMARY;
+      iconColor = STATUS.ERROR_MAIN;
       break;
     case 'disabled':
       borderColor = BORDER.PRIMARY;
@@ -193,6 +204,13 @@ const Dropdown: React.FC<DropdownProps> = ({
           </div>
         </div>
       </div>
+      
+      {/* エラーメッセージ表示 */}
+      {currentState === 'error' && errorMessage && (
+        <p className="mt-1 text-sm" style={{ color: STATUS.ERROR_MAIN }}>
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };

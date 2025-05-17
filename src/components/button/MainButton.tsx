@@ -29,6 +29,9 @@ export interface MainButtonProps {
   
   /** 追加のCSSクラス */
   className?: string;
+
+  /** ボタンのタイプ: 'button', 'submit', 'reset' */
+  type?: 'button' | 'submit' | 'reset';
 }
 
 /**
@@ -43,6 +46,7 @@ export const MainButton: React.FC<MainButtonProps> = ({
   disabled = false,
   fullWidth = false,
   className = '',
+  type = 'button',
 }) => {
   // 色の設定
   let backgroundColor, hoverBackgroundColor, textColor;
@@ -93,6 +97,7 @@ export const MainButton: React.FC<MainButtonProps> = ({
       style={style}
       hoverStyle={hoverStyle}
       className={`rounded-full ${className}`}
+      type={type}
     >
       {children}
     </BaseButton>
