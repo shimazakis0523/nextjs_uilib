@@ -141,7 +141,7 @@ const TextArea: React.FC<TextAreaProps> = ({
     if (isDirty && validateOn === 'change') {
       runValidation(textValue);
     }
-  }, [textValue, isDirty, validationPattern, maxLength, validateOn]);
+  }, [textValue, isDirty, validationPattern, maxLength, validateOn, runValidation]);
   
   // propsからdisabledが渡された場合はstate='disabled'に設定
   // 検証エラーの場合はエラー状態に
@@ -190,13 +190,17 @@ const TextArea: React.FC<TextAreaProps> = ({
   // フォーカスハンドラ
   const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(true);
-    props.onFocus && props.onFocus(e);
+    if (props.onFocus) {
+      props.onFocus(e);
+    }
   };
   
   // ブラーハンドラ
   const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(false);
-    props.onBlur && props.onBlur(e);
+    if (props.onBlur) {
+      props.onBlur(e);
+    }
     
     // blur時の検証
     if (validateOn === 'blur') {

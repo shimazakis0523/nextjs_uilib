@@ -46,7 +46,7 @@ export default function FontSample() {
           {Object.entries(FONT_SIZE).map(([name, size]) => (
             <div key={name} className="flex items-center">
               <div className="w-20">{name}:</div>
-              <Text size={name.toLowerCase() as any}>{size} - これはサンプルテキストです</Text>
+              <Text size={name.toLowerCase() as 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'}>{size} - これはサンプルテキストです</Text>
             </div>
           ))}
         </div>

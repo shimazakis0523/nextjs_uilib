@@ -27,7 +27,7 @@ export default function LabelPage() {
             <h2 className="text-lg font-medium mb-4">通常サイズ</h2>
             <div className="flex flex-wrap gap-4">
               {variants.map((variant) => (
-                <Label key={`medium-${variant}`} variant={variant as any}>
+                <Label key={`medium-${variant}`} variant={variant}>
                   ラベル
                 </Label>
               ))}
@@ -38,7 +38,7 @@ export default function LabelPage() {
             <h2 className="text-lg font-medium mb-4">小サイズ</h2>
             <div className="flex flex-wrap gap-4">
               {variants.map((variant) => (
-                <Label key={`small-${variant}`} variant={variant as any} size="small">
+                <Label key={`small-${variant}`} variant={variant} size="small">
                   ラベル
                 </Label>
               ))}

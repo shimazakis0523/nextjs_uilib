@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
 

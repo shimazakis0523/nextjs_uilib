@@ -3,7 +3,6 @@
 import React from 'react';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
-import { Blue } from '../constants/colors/Colors';
 
 // アイコンバッジのバリエーション
 export type IconBadgeVariant = 

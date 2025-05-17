@@ -5,7 +5,6 @@ import InputField from '../../components/textfields/InputField';
 import TextArea from '../../components/textfields/TextArea';
 import Dropdown from '../../components/textfields/Dropdown';
 import SearchIcon from '../../components/icons/SearchIcon';
-import CalendarIcon from '../../components/icons/CalendarIcon';
 import AppLayout from '../../components/layout';
 import { Card } from '../../components/cards';
 import { 
@@ -41,23 +40,23 @@ export default function TextFieldsPage() {
   });
   
   // 検証結果を表示するためのハンドラー
-  const handleEmailValidation = (isValid: boolean, value: string) => {
+  const handleEmailValidation = (isValid: boolean) => {
     setValidationResult(prev => ({...prev, email: isValid}));
   };
   
-  const handlePhoneValidation = (isValid: boolean, value: string) => {
+  const handlePhoneValidation = (isValid: boolean) => {
     setValidationResult(prev => ({...prev, phone: isValid}));
   };
   
-  const handleMobilePhoneValidation = (isValid: boolean, value: string) => {
+  const handleMobilePhoneValidation = (isValid: boolean) => {
     setValidationResult(prev => ({...prev, mobilePhone: isValid}));
   };
   
-  const handlePostalCodeValidation = (isValid: boolean, value: string) => {
+  const handlePostalCodeValidation = (isValid: boolean) => {
     setValidationResult(prev => ({...prev, postalCode: isValid}));
   };
   
-  const handleUrlValidation = (isValid: boolean, value: string) => {
+  const handleUrlValidation = (isValid: boolean) => {
     setValidationResult(prev => ({...prev, url: isValid}));
   };
   

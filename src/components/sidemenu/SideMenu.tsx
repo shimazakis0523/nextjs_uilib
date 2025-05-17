@@ -169,7 +169,7 @@ const SideMenu: React.FC<SideMenuProps> = ({
         
         {item.children && item.children.length > 0 && item.isOpen && (
           <ul className="mt-1">
-            {item.children.map((subItem, subIndex) => 
+            {item.children.map((subItem, _) => 
               renderMenuItem(subItem, index, depth + 1)
             )}
           </ul>

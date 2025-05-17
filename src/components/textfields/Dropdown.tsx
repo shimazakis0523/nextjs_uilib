@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useState, useRef, SelectHTMLAttributes, ReactNode } from 'react';
-import { withAlpha } from '../constants/colors/Colors';
 import { PRIMARY } from '../constants/colors/primary';
 import { GRAY } from '../constants/colors/gray';
-import { STATUS } from '../constants/colors/status';
 import { BORDER } from '../constants/colors/border';
 import { BACKGROUND } from '../constants/colors/background';
 import { TEXT } from '../constants/colors/text';
@@ -107,13 +105,17 @@ const Dropdown: React.FC<DropdownProps> = ({
   // フォーカスハンドラ
   const handleFocus = (e: React.FocusEvent<HTMLSelectElement>) => {
     setIsFocused(true);
-    props.onFocus && props.onFocus(e);
+    if (props.onFocus) {
+      props.onFocus(e);
+    }
   };
   
   // ブラーハンドラ
   const handleBlur = (e: React.FocusEvent<HTMLSelectElement>) => {
     setIsFocused(false);
-    props.onBlur && props.onBlur(e);
+    if (props.onBlur) {
+      props.onBlur(e);
+    }
   };
   
   // クリックハンドラ - ドロップダウンのコンテナをクリックしたときに、selectにフォーカスを移す
@@ -179,7 +181,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             style={{ color: iconColor }}
           >
             {dropdownIcon && React.isValidElement(dropdownIcon) ? 
-              React.cloneElement(dropdownIcon as React.ReactElement<any>, { 
+              React.cloneElement(dropdownIcon as React.ReactElement<{color?: string; key: string}>, { 
                 color: iconColor,
                 key: 'dropdown-icon'
               }) : 

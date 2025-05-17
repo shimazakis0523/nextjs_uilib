@@ -3,8 +3,6 @@
 import React, { useState } from 'react';
 import { Header } from '../headers';
 import { SideMenu, MenuItem } from '../sidemenu';
-import { UserIcon, MailIcon, ImageIcon, InfoIcon, WarningIcon } from '../icons';
-import { ToggleSwitch } from '../toggles';
 
 interface AppLayoutProps {
   /** メインコンテンツ */

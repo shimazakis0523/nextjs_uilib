@@ -145,7 +145,7 @@ const InputField: React.FC<InputFieldProps> = ({
     if (isDirty && validateOn === 'change') {
       runValidation(inputValue);
     }
-  }, [inputValue, isDirty, validationPattern, maxLength, validateOn]);
+  }, [inputValue, isDirty, validationPattern, maxLength, validateOn, runValidation]);
   
   // propsからdisabledが渡された場合はstate='disabled'に設定
   // 検証エラーの場合はエラー状態に
@@ -198,13 +198,17 @@ const InputField: React.FC<InputFieldProps> = ({
   // フォーカスハンドラ
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(true);
-    props.onFocus && props.onFocus(e);
+    if (props.onFocus) {
+      props.onFocus(e);
+    }
   };
   
   // ブラーハンドラ
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(false);
-    props.onBlur && props.onBlur(e);
+    if (props.onBlur) {
+      props.onBlur(e);
+    }
     
     // blur時の検証
     if (validateOn === 'blur') {
@@ -291,7 +295,7 @@ const InputField: React.FC<InputFieldProps> = ({
           {leftIcon && (
             <div className="flex-shrink-0 mr-2" style={{ color: iconColor }}>
               {React.isValidElement(leftIcon) ? 
-                React.cloneElement(leftIcon as React.ReactElement<any>, { 
+                React.cloneElement(leftIcon as React.ReactElement<{color?: string; key: string}>, { 
                   color: iconColor,
                   key: 'left-icon' 
                 }) : 
@@ -317,7 +321,7 @@ const InputField: React.FC<InputFieldProps> = ({
           {rightIcon && (
             <div className="flex-shrink-0 ml-2" style={{ color: iconColor }}>
               {React.isValidElement(rightIcon) ? 
-                React.cloneElement(rightIcon as React.ReactElement<any>, { 
+                React.cloneElement(rightIcon as React.ReactElement<{color?: string; key: string}>, { 
                   color: iconColor,
                   key: 'right-icon'
                 }) : 

@@ -91,7 +91,7 @@ export default function IconLabelPage() {
             <h2 className="text-lg font-medium mb-4">通常サイズ</h2>
             <div className="flex flex-wrap gap-4">
               {variants.map((variant) => (
-                <IconLabel key={`medium-${variant}`} variant={variant as any} icon={<MailIcon />}>
+                <IconLabel key={`medium-${variant}`} variant={variant as 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'outline' | 'purple'} icon={<MailIcon />}>
                   メッセージ
                 </IconLabel>
               ))}
@@ -102,7 +102,7 @@ export default function IconLabelPage() {
             <h2 className="text-lg font-medium mb-4">小サイズ</h2>
             <div className="flex flex-wrap gap-4">
               {variants.map((variant) => (
-                <IconLabel key={`small-${variant}`} variant={variant as any} size="small" icon={<MailIcon size={12} />}>
+                <IconLabel key={`small-${variant}`} variant={variant as 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'outline' | 'purple'} size="small" icon={<MailIcon size={12} />}>
                   メッセージ
                 </IconLabel>
               ))}

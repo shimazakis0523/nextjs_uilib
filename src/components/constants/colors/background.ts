@@ -1,7 +1,7 @@
 // 背景カラー定義
 // ページや要素の背景として使用する色です。
 
-import { BlueGray, Black, Common, withAlpha } from './Colors';
+import { BlueGray, Common, withAlpha } from './Colors';
 
 export const BACKGROUND_COLORS = {
   // 基本背景色
