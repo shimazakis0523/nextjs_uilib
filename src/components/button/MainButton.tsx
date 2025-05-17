@@ -71,6 +71,7 @@ export const MainButton: React.FC<MainButtonProps> = ({
     backgroundColor,
     color: textColor,
     opacity: disabled ? DISABLED.OPACITY : 1,
+    borderRadius: '9999px', // 最大の丸み
   };
 
   // ホバー時のスタイル
@@ -91,7 +92,7 @@ export const MainButton: React.FC<MainButtonProps> = ({
       fullWidth={fullWidth}
       style={style}
       hoverStyle={hoverStyle}
-      className={className}
+      className={`rounded-full ${className}`}
     >
       {children}
     </BaseButton>

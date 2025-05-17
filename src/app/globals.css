@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* カラーシステムから注入される変数 - 直接色を記述しない */
+  --app-background: var(--color-background-light);
+  --app-foreground: var(--color-foreground-light);
+  
+  /* 
+    以下の変数はJavaScriptから動的に設定されます
+    変数名はfont.tsのFONT_CSS_VARSで一元管理されています
+    --app-font-title
+    --app-font-body
+    --app-font-body-underline
+    --font-sans
+    --font-mono
+  */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background-light: var(--color-background);
+  --color-foreground-light: var(--color-foreground);
+  
+  /*
+    以下の変数はJavaScriptから動的に設定されます
+    ここでは定義のみを示しています
+  */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --app-background: var(--color-background-dark);
+    --app-foreground: var(--color-foreground-dark);
   }
 }
 
+/* 基本フォント設定 - すべてCSS変数を使用 */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--app-background);
+  color: var(--app-foreground);
+  font-family: var(--app-font-body);
+  line-height: 1.5;
+}
+
+/* タイトル要素のフォント設定 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--app-font-title);
+  line-height: 1.2;
+  margin: 1.5em 0 0.5em;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+h4 { font-size: 18px; }
+
+/* 下線付きテキスト */
+.underline-text {
+  font-family: var(--app-font-body-underline);
+  text-decoration: underline;
+}
+
+/* フォント適用用ユーティリティクラス */
+.font-title { font-family: var(--app-font-title); }
+.font-body { font-family: var(--app-font-body); }
+.font-body-underline {
+  font-family: var(--app-font-body-underline);
+  text-decoration: underline;
 }

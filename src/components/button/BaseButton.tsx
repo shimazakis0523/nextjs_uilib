@@ -68,7 +68,6 @@ const BaseButton: React.FC<BaseButtonProps> = ({
     focus:outline-none 
     transition-all 
     duration-300
-    rounded-full
     ${sizeStyles[size]}
     ${fullWidth ? 'w-full' : ''}
     ${className}

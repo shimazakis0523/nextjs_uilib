@@ -3,31 +3,32 @@
 
 import { TEXT } from './text';
 import { PRIMARY } from './primary';
+import { BlueGray, Black, Common } from './Colors';
 
 export const INPUT_COLORS = {
   // コンテナカラー（背景色）
   container: {
-    default: '#FFFFFF',       // KeyColor/White - 通常時の背景色
-    inactive: '#F0F2F5',      // BlueGray100 - 非アクティブ時の背景色
-    disabled: '#E0E0E0',      // Black300 - 無効時の背景色
+    default: Common.WHITE,    // 通常時の背景色
+    inactive: BlueGray[100],  // 非アクティブ時の背景色
+    disabled: Black[300],     // 無効時の背景色
   },
   
   // コンテナ上のテキスト・アイコン色
   onContainer: {
-    text: TEXT.PRIMARY,       // Text/primary - 入力テキスト色
-    icon: '#5D6B82',          // BlueGray600 - アイコン色
-    inactive: '#5D6B82',      // BlueGray500 - 非アクティブ時のテキスト色
-    disabled: '#9E9E9E',      // Black500 - 無効時のテキスト色
+    text: TEXT.PRIMARY,       // 入力テキスト色
+    icon: BlueGray[600],      // アイコン色
+    inactive: BlueGray[500],  // 非アクティブ時のテキスト色
+    disabled: Black[500],     // 無効時のテキスト色
   },
   
   // プレースホルダー
-  placeholder: '#9E9E9E',     // Black400 - プレースホルダーテキスト色
+  placeholder: Black[500],    // プレースホルダーテキスト色
   
   // ボーダー
   border: {
-    default: '#A9B6CB',       // BlueGray400 - 通常時のボーダー色
-    focus: PRIMARY.MAIN,      // Primary/primary - フォーカス時のボーダー色
-    error: '#A9B6CB',         // BlueGray400 - エラー時のボーダー色（エラーメッセージと併用）
+    default: BlueGray[400],   // 通常時のボーダー色
+    focus: PRIMARY.MAIN,      // フォーカス時のボーダー色
+    error: BlueGray[400],     // エラー時のボーダー色（エラーメッセージと併用）
   }
 };
 

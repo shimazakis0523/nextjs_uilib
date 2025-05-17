@@ -1,6 +1,8 @@
 // テキストカラー定義
 // テキストに使用する色です。見出し、本文、リンクなどで使用されます。
 
+import { Blue } from './Colors';
+
 export const TEXT_COLORS = {
   // 基本テキストカラー
   primary: '#333333',      // Black800 - メインテキストカラー
@@ -9,8 +11,8 @@ export const TEXT_COLORS = {
   
   // リンクカラー
   link: {
-    default: '#0067B9',    // Blue800 - 通常のリンク色
-    hover: '#1E90FF',      // Blue600 - ホバー時のリンク色
+    default: Blue[800],    // 通常のリンク色
+    hover: Blue[600],      // ホバー時のリンク色
     visited: '#683CCD',    // 紫色 - 訪問済みリンク色
   }
 };

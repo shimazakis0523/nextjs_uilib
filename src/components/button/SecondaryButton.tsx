@@ -76,6 +76,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
     borderStyle: 'solid',
     borderColor: borderColor,
     opacity: disabled ? DISABLED.OPACITY : 1,
+    borderRadius: '9999px', // 最大の丸み
   };
 
   // ホバー時のスタイル
@@ -93,7 +94,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
       fullWidth={fullWidth}
       style={style}
       hoverStyle={hoverStyle}
-      className={className}
+      className={`rounded-full ${className}`}
     >
       {children}
     </BaseButton>

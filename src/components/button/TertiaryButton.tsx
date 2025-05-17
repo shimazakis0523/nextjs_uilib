@@ -76,6 +76,7 @@ export const TertiaryButton: React.FC<TertiaryButtonProps> = ({
     borderStyle: 'solid',
     borderColor: disabled ? DISABLED.GRAY_BACKGROUND : borderColor,
     opacity: disabled ? DISABLED.OPACITY : 1,
+    borderRadius: '6px',
   };
 
   // ホバー時のスタイル
@@ -92,7 +93,7 @@ export const TertiaryButton: React.FC<TertiaryButtonProps> = ({
       fullWidth={fullWidth}
       style={style}
       hoverStyle={hoverStyle}
-      className={`rounded-md !rounded-md ${className}`}
+      className={className}
     >
       {children}
     </BaseButton>
